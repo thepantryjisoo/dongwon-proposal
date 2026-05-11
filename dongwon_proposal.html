@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dongwon_proposal</title>
+<style>
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#F7F7F8;
+  --white:#fff;
+  --red:#C4463A;
+  --dark:#1B1B1B;
+  --text:#3A3A3A;
+  --sub:#6B6E75;
+  --light:#9CA0A8;
+  --line:#E8E9EC;
+  --card:#F0F0F2;
+  --red-bg:#F5EFED;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.w{max-width:640px;margin:0 auto;padding:0 24px}
+
+/* ── COVER ── */
+.cover{min-height:100dvh;display:flex;flex-direction:column;justify-content:space-between;padding:48px 0 40px}
+.cover-bar{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px;font-size:11px;letter-spacing:.04em;color:var(--sub)}
+.cover-bar .dot{color:var(--red);font-size:14px;margin-right:4px;vertical-align:middle}
+.cover-bar b{color:var(--dark);font-weight:500}
+.cover-mid{padding:20px 0}
+.tag{color:var(--red);font-size:12px;font-weight:500;letter-spacing:.02em;margin-bottom:16px}
+.cover h1{font-size:clamp(26px,7vw,38px);font-weight:400;color:var(--dark);line-height:1.38;letter-spacing:-.03em;margin-bottom:24px}
+.cover h1 em{font-style:normal;color:var(--red);font-weight:400}
+.cover-desc{font-size:14px;line-height:1.9;color:var(--sub);font-weight:300}
+.cover-ft{border-top:1px solid var(--line);padding-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:20px 16px}
+.cover-ft dt{font-size:10px;font-weight:600;color:var(--light);letter-spacing:.06em;margin-bottom:2px}
+.cover-ft dd{font-size:13px;color:var(--dark);font-weight:400;line-height:1.5}
+
+/* ── SECTION ── */
+section{padding:56px 0 40px;border-top:1px solid var(--line)}
+.sec-tag{font-size:11px;color:var(--red);font-weight:500;letter-spacing:.03em;margin-bottom:4px}
+.sec-tag .dot{font-size:13px;margin-right:3px}
+section h2{font-size:clamp(20px,5vw,28px);font-weight:400;color:var(--dark);line-height:1.35;letter-spacing:-.02em;margin-bottom:6px}
+.sec-sub{font-size:13px;color:var(--sub);font-weight:300;margin-bottom:24px;line-height:1.7}
+
+/* ── BODY ── */
+p.b{font-size:14px;line-height:1.85;color:var(--text);font-weight:300;margin-bottom:10px}
+p.b strong{font-weight:500;color:var(--dark)}
+p.b em{font-style:normal;color:var(--red);font-weight:400}
+h3.sub{font-size:14px;font-weight:300;color:var(--dark);margin:24px 0 8px;line-height:1.5}
+h3.sub em{font-style:normal;color:var(--red);font-weight:300}
+
+/* ── STAT ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:24px;background:var(--white)}
+.st{text-align:center;padding:18px 6px}
+.st+.st{border-left:1px solid var(--line)}
+.st .n{font-size:clamp(18px,4vw,24px);font-weight:400;color:var(--dark);line-height:1.2}
+.st .l{font-size:10px;color:var(--light);margin-top:4px;line-height:1.4;font-weight:400}
+
+/* ── CALLOUT ── */
+.call{background:var(--red-bg);border-radius:8px;padding:18px 20px;margin:20px 0}
+.call strong{color:var(--red);font-weight:600;font-size:14px}
+.call p{font-size:13px;color:var(--text);line-height:1.75;margin-top:6px;font-weight:300}
+
+/* ── TABLE ── */
+.tw{overflow-x:auto;margin:16px 0 20px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead th{background:var(--card);color:var(--dark);font-weight:600;text-align:center;padding:10px 8px;border-bottom:1px solid var(--line)}
+tbody td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:center;color:var(--text);font-weight:300}
+tbody tr:nth-child(even){background:rgba(0,0,0,.015)}
+td.l{text-align:left}
+td.s{font-weight:500;color:var(--dark)}
+td.r{color:var(--red);font-weight:600}
+td.xh{background:var(--red-bg)!important}
+
+/* ── PILLARS ── */
+.pills{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:24px;background:var(--white)}
+.pill{text-align:center;padding:16px 6px}
+.pill+.pill{border-left:1px solid var(--line)}
+.pill .t{font-size:9px;font-weight:600;color:var(--red);letter-spacing:.06em;margin-bottom:6px}
+.pill .v{font-size:12px;color:var(--dark);line-height:1.5;font-weight:400}
+
+/* ── OFFER TABLE ── */
+.offer td:first-child{text-align:left;font-weight:500;color:var(--dark);white-space:nowrap}
+.offer td{text-align:left;line-height:1.6}
+
+/* ── REV GRID ── */
+.revs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:24px}
+.rev{background:var(--white);padding:18px 16px}
+.rev .t{font-size:13px;font-weight:600;color:var(--red);margin-bottom:6px}
+.rev p{font-size:13px;line-height:1.7;color:var(--text);font-weight:300}
+
+/* ── PHASES ── */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.ph{border:1px solid var(--line);border-radius:8px;padding:18px 14px;background:var(--white)}
+.ph .t{font-size:10px;font-weight:600;color:var(--red);letter-spacing:.02em;margin-bottom:4px}
+.ph .nm{font-size:16px;font-weight:400;color:var(--dark);margin-bottom:10px}
+.ph ul{list-style:none;margin-bottom:12px}
+.ph li{font-size:12px;line-height:1.6;color:var(--sub);padding-left:12px;position:relative;font-weight:300}
+.ph li::before{content:'−';position:absolute;left:0;color:var(--light)}
+.ph .g{font-size:11px;font-weight:600;color:var(--red)}
+
+/* ── RISKS ── */
+.risks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+.rsk{background:var(--red-bg);border-radius:8px;padding:16px}
+.rsk strong{font-size:13px;color:var(--red);font-weight:600;display:block;margin-bottom:4px}
+.rsk p{font-size:12px;line-height:1.6;color:var(--text);font-weight:300}
+
+/* ── STEPS ── */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:28px}
+.stp{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:18px 8px;text-align:center}
+.stp .n{font-size:18px;font-weight:400;color:var(--red)}
+.stp .nm{font-size:13px;font-weight:600;color:var(--dark);margin:4px 0}
+.stp .d{font-size:10px;color:var(--light);line-height:1.4;font-weight:300}
+
+/* ── CTA ── */
+.cta{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:36px 24px;text-align:center;margin:24px 0}
+.cta h3{font-size:clamp(17px,4vw,21px);font-weight:300;color:var(--dark);margin:0 0 10px;line-height:1.5;letter-spacing:-.01em}
+.cta p{font-size:12px;color:var(--light);line-height:1.6;font-weight:300}
+
+/* ── TOC ── */
+.toc{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.ti{padding:14px 0;border-bottom:1px solid var(--line)}
+.ti:nth-child(odd){padding-right:16px}
+.ti:nth-child(even){padding-left:16px}
+.ti .n{font-weight:400;color:var(--red);margin-right:6px;font-size:13px}
+.ti .tt{font-size:14px;font-weight:500;color:var(--dark)}
+.ti .e{font-size:10px;color:var(--light);display:block;margin-top:2px;letter-spacing:.03em}
+
+.note{font-size:11px;color:var(--light);line-height:1.6;margin-top:8px;font-weight:300}
+.footer{padding:20px 0 48px;font-size:11px;color:var(--light);letter-spacing:.02em}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .w{padding:0 20px}
+  .cover-ft{grid-template-columns:1fr 1fr;gap:16px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .st:nth-child(n+3){border-top:1px solid var(--line)}
+  .st:nth-child(odd){border-left:none}
+  .pills{grid-template-columns:repeat(2,1fr)}
+  .pill:nth-child(n+3){border-top:1px solid var(--line)}
+  .pill:nth-child(odd){border-left:none}
+  .revs{grid-template-columns:1fr}
+  .phases{grid-template-columns:1fr}
+  .risks{grid-template-columns:1fr}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .toc{grid-template-columns:1fr}
+  .ti:nth-child(even){padding-left:0}
+  section{padding:36px 0 28px}
+  table{font-size:12px}
+  thead th,tbody td{padding:8px 6px}
+}
+</style>
+</head>
+<body>
+<div class="w">
+
+<!-- COVER -->
+<div class="cover">
+  <div>
+    <div class="cover-bar"><span><span class="dot">●</span> <b>MCN PARTNERSHIP PROPOSAL</b></span><span>2026.05 / Confidential</span></div>
+  </div>
+  <div class="cover-mid">
+    <p class="tag">FOR 헬로동원 @hello_dongwon · @editor_dongwon</p>
+    <h1>필터로<br><em>국경을 넘다.</em></h1>
+    <p class="cover-desc">추가 촬영 없이 중국 플랫폼에서 수익을 만들 수 있는 구조를 정리했습니다.<br>라도(LADO)가 그 과정을 실무적으로 도와드리겠습니다.</p>
+  </div>
+  <dl class="cover-ft">
+    <div><dt>FROM</dt><dd>LADO Entertainment</dd></div>
+    <div><dt>FOR</dt><dd>헬로동원 (@hello_dongwon)</dd></div>
+    <div><dt>PLATFORM</dt><dd>샤오홍슈 (Xiaohongshu)</dd></div>
+    <div><dt>DATE</dt><dd>May, 2026</dd></div>
+  </dl>
+</div>
+
+<!-- CONTENTS -->
+<section>
+  <p class="sec-tag">MCN PARTNERSHIP PROPOSAL</p>
+  <h2>목차</h2>
+  <p class="sec-sub">라도와의 협업이 어떤 모습인지, 8개 챕터로 정리했습니다.</p>
+  <div class="toc">
+    <div class="ti"><span class="n">01</span><span class="tt">왜 동원님인가</span><span class="e">WHY YOU</span></div>
+    <div class="ti"><span class="n">02</span><span class="tt">왜 지금 샤오홍슈인가</span><span class="e">WHY XIAOHONGSHU NOW</span></div>
+    <div class="ti"><span class="n">03</span><span class="tt">왜 라도(LADO)인가</span><span class="e">WHY LADO</span></div>
+    <div class="ti"><span class="n">04</span><span class="tt">우리가 해드릴 수 있는 것</span><span class="e">WHAT WE OFFER</span></div>
+    <div class="ti"><span class="n">05</span><span class="tt">수익 모델</span><span class="e">REVENUE MODEL</span></div>
+    <div class="ti"><span class="n">06</span><span class="tt">12개월 운영 로드맵</span><span class="e">ROADMAP</span></div>
+    <div class="ti"><span class="n">07</span><span class="tt">계약 조건과 리스크</span><span class="e">TERMS &amp; RISK</span></div>
+    <div class="ti"><span class="n">08</span><span class="tt">다음 단계</span><span class="e">NEXT STEP</span></div>
+  </div>
+</section>
+
+<!-- 01 WHY YOU -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 01 · WHY YOU</p>
+  <h2>왜 동원님인가</h2>
+  <p class="sec-sub">두 채널 합산 100만+ 팔로워, 감각적인 공간 큐레이션, 그리고 샤오홍슈와의 접점</p>
+  <div class="stats">
+    <div class="st"><div class="n">85.5만</div><div class="l">@hello_dongwon<br>메인 채널</div></div>
+    <div class="st"><div class="n">16만</div><div class="l">@editor_dongwon<br>큐레이터 채널</div></div>
+    <div class="st"><div class="n">2채널</div><div class="l">메인 + 에디터<br>멀티 운영</div></div>
+    <div class="st"><div class="n">캐러셀</div><div class="l">이미지 중심<br>콘텐츠 포맷</div></div>
+  </div>
+  <h3 class="sub"><em>'공간을 보는 눈'</em> — 대체 불가능한 큐레이션 감각</h3>
+  <p class="b">동원님 채널의 가장 큰 자산은 <strong>공간을 고르고 담아내는 감각</strong>이에요. 한국과 일본의 감성적인 공간들을 꾸준히 큐레이션해 오셨고, 100만 명 이상이 그 감각에 반응하고 있어요. 이건 단순 사진 실력을 넘어선, 에디터로서의 시선이에요.</p>
+  <h3 class="sub"><em>캐러셀 포맷</em> — 샤오홍슈의 네이티브 언어</h3>
+  <p class="b">동원님이 주력으로 쓰시는 <strong>이미지 캐러셀은 샤오홍슈의 기본 포맷</strong>이에요. 샤오홍슈는 원래 이미지 슬라이드 중심 플랫폼이라, 릴스나 영상 없이도 충분히 도달할 수 있는 구조입니다. 오히려 딱 맞아요.</p>
+  <h3 class="sub"><em>이미 검증된 수익화 경험</em> — 필터·클래스 판매</h3>
+  <p class="b">카메라 필터 판매와 클래스 운영 이력이 있다는 건, <strong>콘텐츠를 수익으로 전환하는 구조를 이미 이해하고 계신다</strong>는 뜻이에요. 특히 중국은 사진 필터·프리셋 구매 문화가 한국보다 훨씬 활발해서, <strong>동원님의 필터를 샤오홍슈에서 판매하면 기존보다 더 큰 시장을 만날 수 있어요.</strong></p>
+  <div class="call"><strong>동원님은 지금처럼 콘텐츠만 만들어 주시면 됩니다.</strong><p>번역, 현지화, 운영, 수익화 — 나머지는 라도가 합니다.</p></div>
+</section>
+
+<!-- 02 WHY XIAOHONGSHU -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 02 · WHY XIAOHONGSHU NOW</p>
+  <h2>왜 지금 샤오홍슈인가</h2>
+  <p class="sec-sub">3억 사용자, 공간·여행 큐레이션의 핵심 플랫폼, 그리고 한국·일본 콘텐츠의 높은 수요</p>
+  <div class="stats">
+    <div class="st"><div class="n">3억+</div><div class="l">월간 활성 사용자<br>(MAU)</div></div>
+    <div class="st"><div class="n">72%</div><div class="l">MZ세대 비율</div></div>
+    <div class="st"><div class="n">12개월+</div><div class="l">검색 기반<br>콘텐츠 수명</div></div>
+    <div class="st"><div class="n">이미지</div><div class="l">캐러셀 중심<br>네이티브 포맷</div></div>
+  </div>
+  <h3 class="sub">인스타·유튜브와 결정적으로 다른 점 — <em>'검색 기반 자산'</em></h3>
+  <div class="tw"><table>
+    <thead><tr><th>구분</th><th>Instagram</th><th>YouTube</th><th>Xiaohongshu</th></tr></thead>
+    <tbody>
+      <tr><td>콘텐츠 수명</td><td>24~48시간</td><td>1~3개월</td><td class="r xh">12개월 이상</td></tr>
+      <tr><td>발견 경로</td><td>피드·릴스</td><td>추천·검색</td><td class="r xh">검색 중심</td></tr>
+      <tr><td>공간 큐레이션 적합도</td><td>높음</td><td>보통</td><td class="r xh">최적</td></tr>
+      <tr><td>전자상거래</td><td>외부 링크</td><td>외부 링크</td><td class="r xh">플랫폼 내장</td></tr>
+    </tbody>
+  </table></div>
+  <p class="b">공간·카페·여행지 콘텐츠는 <em>'검색'해서 찾아보는</em> 콘텐츠예요. 중국인들이 한국·일본 여행을 계획할 때 <strong>샤오홍슈에서 카페, 숙소, 공간을 검색하는 게 거의 필수 루틴</strong>이에요. 한 번 올린 공간 콘텐츠는 1년 넘게 검색 유입이 들어옵니다.</p>
+  <h3 class="sub"><em>중국도 지금, 감성 공간 전성시대</em></h3>
+  <p class="b">중국 내에서도 감성 카페·독립 서점·복합문화공간이 폭발적으로 늘어나고 있어요. 샤오홍슈에서 '网红打卡(왕홍 체크인)' 공간 콘텐츠는 <strong>가장 활발한 카테고리 중 하나</strong>예요. 공간을 예쁘게 담아내는 감각에 대한 수요가 이미 형성되어 있다는 뜻이에요.</p>
+  <h3 class="sub"><em>한국·일본 공간에 대한 높은 관심</em></h3>
+  <p class="b">여기에 더해 중국 MZ세대에게 한국과 일본은 <strong>가장 인기 있는 해외 여행지</strong>예요. 감성적인 카페, 독립 서점, 편집숍 같은 공간 정보에 대한 검색이 꾸준히 늘고 있어요. 중국 자체 감성 공간 붐 + 해외 공간 탐색 수요, 이 두 흐름이 만나는 지점에 동원님의 콘텐츠가 있습니다.</p>
+  <h3 class="sub"><em>지금 들어가면 유리한 이유</em></h3>
+  <p class="b">뷰티·패션은 이미 경쟁이 치열하지만, <strong>'한국·일본 감성 공간 큐레이션' 카테고리는 아직 본격적으로 자리 잡은 크리에이터가 많지 않아요.</strong> 지금이 이 카테고리를 선점할 수 있는 좋은 타이밍이에요.</p>
+</section>
+
+<!-- 03 WHY LADO -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 03 · WHY LADO</p>
+  <h2>왜 라도(LADO)인가</h2>
+  <p class="sec-sub">틱톡·샤오홍슈 본사 직계약 파트너. 실무를 맡기실 수 있는 구조입니다.</p>
+  <div class="pills">
+    <div class="pill"><div class="t">TIKTOK</div><div class="v">본사 직계약<br>공식 파트너</div></div>
+    <div class="pill"><div class="t">XIAOHONGSHU</div><div class="v">본사 직계약<br>공식 파트너</div></div>
+    <div class="pill"><div class="t">PHILOSOPHY</div><div class="v">Build identities<br>that last</div></div>
+    <div class="pill"><div class="t">FOCUS</div><div class="v">단기 성과보다<br>지속 가능한 성장</div></div>
+  </div>
+  <h3 class="sub"><em>본사 직계약</em> — '보호막' 위에서 안전하게 시작합니다</h3>
+  <p class="b">한국 크리에이터가 샤오홍슈에서 자주 겪는 문제가 <strong>계정 잠김, 노출 제한, 정산 누락</strong>이에요. 대부분 비공식 대행사를 거치면서 생기는 일들이죠. 라도는 틱톡·샤오홍슈 양쪽 <em>본사와 직접 계약한 공식 파트너</em>라서, 이런 문제에서 보호받을 수 있습니다.</p>
+  <h3 class="sub"><em>관리가 아닌 동반자</em> — 라도의 매니지먼트 철학</h3>
+  <p class="b">라도는 단기 조회수보다 <strong>크리에이터의 정체성을 오래가는 자산으로 만드는 데</strong> 집중합니다. 동원님이 쌓아오신 공간 큐레이터로서의 시선 — 그걸 그대로 유지하면서 새로운 무대를 열어드리는 게 목표예요.</p>
+  <h3 class="sub"><em>투명한 정산</em> — 한국 계좌, 원화, 정해진 정산일</h3>
+  <p class="b">중국에서 생긴 수익은 라도가 환전·세무 처리해서 <strong>한국 계좌에 원화로</strong> 넣어 드립니다. 환율이나 세금 신고는 신경 안 쓰셔도 돼요.</p>
+</section>
+
+<!-- 04 WHAT WE OFFER -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 04 · WHAT WE OFFER</p>
+  <h2>우리가 해드릴 수 있는 것</h2>
+  <p class="sec-sub">지금 하시는 활동은 그대로 하시면 됩니다. 중국 쪽 운영은 라도가 맡습니다.</p>
+  <div class="tw"><table class="offer">
+    <thead><tr><th>영역</th><th>라도가 해드리는 것</th><th>동원님이 하실 것</th></tr></thead>
+    <tbody>
+      <tr><td>콘텐츠 현지화</td><td class="l">중문 캡션·해시태그 + 키워드 리서치 + 이미지 텍스트 재제작 + 댓글 운영</td><td class="l">지금처럼 콘텐츠 제작만</td></tr>
+      <tr><td>문화적 적응</td><td class="l">중국 사용자 관심 공간 리서치·현지 맞춤 카피·위치 정보 현지화</td><td class="l">최종 검수·확인</td></tr>
+      <tr><td>계정 운영</td><td class="l">업로드 스케줄링·댓글 관리·팬 소통</td><td class="l">월 1회 방향성 미팅</td></tr>
+      <tr><td>수익화</td><td class="l">브랜드 협찬 협상·전자상거래 연동·정산 처리</td><td class="l">제안 승인</td></tr>
+      <tr><td>데이터 리포팅</td><td class="l">월간 성과 리포트 + 다음 달 전략 제안</td><td class="l">읽고 피드백</td></tr>
+    </tbody>
+  </table></div>
+  <div class="call"><strong>단순 번역이 아닙니다.</strong><p>캡션만 중국어로 바꾸면 샤오홍슈 알고리즘에 노출이 안 돼요. 키워드 리서치, 위치 정보 현지화, 댓글 운영까지 — 현지에서 먹히려면 필요한 작업을 라도가 합니다.</p></div>
+</section>
+
+<!-- 05 REVENUE -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 05 · REVENUE MODEL</p>
+  <h2>수익 모델</h2>
+  <p class="sec-sub">4가지 수익원, 단계별 누적 구조</p>
+  <div class="revs">
+    <div class="rev"><div class="t">01 · 공간·브랜드 협찬</div><p>호텔, 카페, 편집숍, 여행 브랜드 등이 샤오홍슈 크리에이터를 통한 노출에 큰 비용을 쓰고 있어요. 100만 팔로워 규모의 공간 큐레이터라면 프리미엄 협찬이 가능합니다.</p></div>
+    <div class="rev"><div class="t">02 · 필터·프리셋 판매</div><p>동원님의 카메라 필터를 샤오홍슈 샵에서 바로 판매할 수 있어요. 중국은 사진 필터 구매 문화가 한국보다 훨씬 활발하고, 특히 공간·카페 촬영용 필터 수요가 폭발적이에요. 이미 판매 경험이 있으시니 구조를 그대로 옮기면 됩니다.</p></div>
+    <div class="rev"><div class="t">03 · 디지털 상품 전자상거래</div><p>필터 외에도 포토 가이드, 공간 촬영 노하우 등 디지털 콘텐츠 상품을 플랫폼 내 샵에서 직접 판매할 수 있어요. 샤오홍슈는 외부 링크 없이 결제까지 가능한 구조입니다.</p></div>
+    <div class="rev"><div class="t">04 · 여행·라이프스타일 브랜드 장기 파트너십</div><p>항공사, 호텔 체인, 관광청 등과의 장기 협업이에요. 한국·일본 공간 콘텐츠는 여행 관련 브랜드에게 지속적인 가치를 제공할 수 있는 카테고리입니다.</p></div>
+  </div>
+  <h3 class="sub">예상 월 수익 시뮬레이션</h3>
+  <div class="tw"><table>
+    <thead><tr><th>시나리오</th><th>샤오홍슈 팔로워</th><th>예상 월 수익</th><th>주요 수익원</th></tr></thead>
+    <tbody>
+      <tr><td>보수적</td><td>5만</td><td class="s">200~400만원</td><td>공간 협찬 중심</td></tr>
+      <tr><td>중간</td><td>15만</td><td class="s">500~800만원</td><td>협찬 + 필터 판매</td></tr>
+      <tr><td class="r">낙관</td><td class="s">40만+</td><td class="r">1,500~2,500만원</td><td>전체 믹스</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">※ 라도 소속 유사 카테고리 크리에이터 데이터 기반 추정치입니다. 실제 수익은 성과에 따라 달라지며, 미팅 시 실제 케이스를 별도로 공유드려요.</p>
+</section>
+
+<!-- 06 ROADMAP -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 06 · ROADMAP</p>
+  <h2>12개월 운영 로드맵</h2>
+  <p class="sec-sub">무리한 약속 대신, 실제 운영 데이터 기반으로 현실적인 목표를 잡았습니다.</p>
+  <div class="phases">
+    <div class="ph"><div class="t">PHASE 1 · 1~3개월</div><div class="nm">씨앗 심기</div><ul><li>계정 셋업·프로필·하이라이트</li><li>기존 인기 콘텐츠 20~30개 현지화</li><li>한국·일본 공간 큐레이션 키워드 선점</li><li>'감성 공간 큐레이터' 포지셔닝</li></ul><div class="g">목표: 팔로워 1~3만</div></div>
+    <div class="ph"><div class="t">PHASE 2 · 4~6개월</div><div class="nm">뿌리 내리기</div><ul><li>샤오홍슈 전용 오리지널 콘텐츠</li><li>첫 공간·브랜드 협찬 진행</li><li>첫 전자상거래 연동 테스트</li><li>팔로워 인터랙션 데이터 축적</li></ul><div class="g">목표: 팔로워 5~8만</div></div>
+    <div class="ph"><div class="t">PHASE 3 · 7~12개월</div><div class="nm">수확</div><ul><li>전자상거래 본격 운영 (필터·프리셋)</li><li>복수 브랜드 협찬 동시 진행</li><li>여행·호텔 브랜드 장기 파트너십</li><li>한국·일본 공간 가이드 시리즈화</li></ul><div class="g">목표: 팔로워 15만+</div></div>
+  </div>
+  <div class="call"><strong>왜 보수적인 숫자인가요?</strong><p>12개월에 50만+ 같은 숫자를 약속하는 곳도 있지만, 못 지키면 의미가 없어요. 위 숫자는 저희가 지킬 수 있는 최저선이고, 이걸 넘기는 건 라도의 몫입니다.</p></div>
+</section>
+
+<!-- 07 TERMS -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 07 · TERMS &amp; RISK</p>
+  <h2>계약 조건과 리스크 해소</h2>
+  <p class="sec-sub">크리에이터가 불리하지 않도록 설계했습니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th>항목</th><th style="text-align:left">내용</th></tr></thead>
+    <tbody>
+      <tr><td class="s">계약 기간</td><td class="l">1년 단위 갱신 (상호 합의). 첫 3개월은 트라이얼.</td></tr>
+      <tr><td class="s">수수료</td><td class="l">발생 수익의 50% (단일 요율). 추가 운영비·수수료 일체 없음.</td></tr>
+      <tr><td class="s">독점 범위</td><td class="l">샤오홍슈(중국 플랫폼)만 해당. 인스타·유튜브·틱톡 등 기존 채널은 자유 운영.</td></tr>
+      <tr><td class="s">콘텐츠 저작권</td><td class="l">동원님 100% 소유. 라도가 제작한 번역·캡션도 계약 종료 시 함께 인계.</td></tr>
+      <tr><td class="s">계정 소유권</td><td class="l">샤오홍슈 계정의 소유자는 동원님 본인. 운영 권한만 라도에 위임. 종료 시 즉시 인계.</td></tr>
+      <tr><td class="s">정산 방식</td><td class="l">매월 정해진 정산일에 한국 계좌·원화 입금. 정산 내역 투명 공개.</td></tr>
+      <tr><td class="s">해지 조건</td><td class="l">3개월 트라이얼 종료 후 언제든 위약금 없이 30일 통보 해지 가능.</td></tr>
+    </tbody>
+  </table></div>
+  <div class="risks">
+    <div class="rsk"><strong>기존 활동 영향 제로</strong><p>인스타그램 두 채널 모두 그대로. 별도 추가 촬영도 필요 없습니다.</p></div>
+    <div class="rsk"><strong>3개월 트라이얼</strong><p>맞지 않으면 의무 없이 종료하실 수 있어요.</p></div>
+    <div class="rsk"><strong>실패해도 남는 자산</strong><p>중국어 캡션이 작성된 콘텐츠는 동원님 소유로 남습니다.</p></div>
+    <div class="rsk"><strong>계정·저작권 완전 보호</strong><p>계정도 콘텐츠도 모두 동원님 소유. 라도는 운영 권한만 위임받습니다.</p></div>
+  </div>
+</section>
+
+<!-- 08 NEXT STEP -->
+<section>
+  <p class="sec-tag"><span class="dot">●</span> 08 · NEXT STEP</p>
+  <h2>다음 단계</h2>
+  <p class="sec-sub">진행하게 된다면 이런 순서예요.</p>
+  <div class="steps">
+    <div class="stp"><div class="n">01</div><div class="nm">연락</div><div class="d">궁금한 점이 있으시면 편하게</div></div>
+    <div class="stp"><div class="n">02</div><div class="nm">상세 미팅</div><div class="d">수수료·운영 방식·실제 케이스 공유</div></div>
+    <div class="stp"><div class="n">03</div><div class="nm">테스트 운영</div><div class="d">기존 콘텐츠 5개 현지화·반응 테스트</div></div>
+    <div class="stp"><div class="n">04</div><div class="nm">본계약</div><div class="d">테스트 결과 확인 후 정식 파트너십</div></div>
+  </div>
+  <h3 class="sub"><em>●</em> 마지막으로</h3>
+  <p class="b">동원님이 쌓아 오신 것들은 <em>이미 충분히 좋은 자산이에요.</em> 이 제안서가 한번쯤 검토해 볼 만한 옵션이 되면 좋겠습니다.</p>
+  <p class="b">편하게 검토해 주시고, 궁금한 점 있으시면 부담 없이 연락 주세요.</p>
+  <div class="cta">
+    <h3>궁금하신 점이 있으시면<br>언제든 편하게 연락 주세요.</h3>
+    <p style="margin-top:12px;font-size:13px;color:var(--sub);font-weight:300;line-height:1.8">카카오톡 jeegussi · jisoo_kim92@naver.com</p>
+    <p style="margin-top:10px">본 제안서는 기밀 문서이며, 제안 대상자에게만 공유됩니다.</p>
+  </div>
+</section>
+
+<div class="footer">LADO ENTERTAINMENT · lado-ent.com</div>
+</div>
+</body>
+</html>
